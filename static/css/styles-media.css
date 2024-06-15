@@ -1,0 +1,426 @@
+#scrollToTopBtn {
+    position: fixed; /* 固定位置 */
+    bottom: 20px; /* 距离底部的距离 */
+    right: 20px; /* 距离右侧的距离 */
+    width: 50px; /* 按钮宽度 */
+    height: 50px; /* 按钮高度 */
+    border-radius: 50%; /* 圆形按钮 */
+    background-color: #669696; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    cursor: pointer; /* 鼠标悬停时的指针形状 */
+    outline: none; /* 移除轮廓，避免点击时出现边框 */
+    border: none; /* 移除边框 */
+    font-size: 24px; /* 文字大小 */
+    display: none; /* 默认隐藏，当页面滚动后再显示 */
+}
+
+/* 当页面滚动到一定距离后显示按钮 */
+body.scroll-active #scrollToTopBtn {
+    display: block;
+}
+
+
+
+
+@media (min-width: 641px) {
+    h1 {
+        font-size: 22px;
+        margin-bottom: 6px;
+        margin-top: 6px;
+        text-align: center;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 5px;
+        border-bottom: 1px solid #ccc;
+        text-align: left;
+        white-space: nowrap; /* 防止文本换行 */
+        overflow: hidden; /* 隐藏溢出的文本 */
+        text-overflow: ellipsis; /* 显示省略号 */
+    }
+
+    th {
+        font-size: 12px;
+        background-color: #f2f2f2;
+        font-weight: bold;
+
+    }
+
+@media (min-width: 641px) {
+td.checkbox-cell {
+        /* margin-right: -7px; */
+        /* display: none; */
+        width: 20px;
+}
+}
+
+
+
+    .download-button {
+        display: inline-block;
+        padding: 5px 7px;
+        font-size: 10px;
+        border-radius: 5px;
+        background-color: #FF9900;
+        color: white;
+        text-decoration: none;
+        margin-right: 3px;
+    }
+    .cert-button {
+        display: inline-block;
+        margin-bottom: 0;
+        font-size: 12px;
+        border-radius: 5px;
+        background-color: #669696;
+        color: white;
+        padding: 5px 7px;
+        text-decoration: none;
+        margin-left: 3px;
+    }
+
+    .return-button {
+        display: inline-block;
+        margin-bottom: 0;
+        font-size: 12px;
+        border-radius: 5px;
+        background-color: #669696;
+        color: white;
+        padding: 5px 7px;
+        text-decoration: none;
+        margin-left: 3px;
+    }
+
+    .search-input {
+        margin-bottom: 10px;
+        padding: 6px;
+        width: 230px;
+        border-radius: 5px;
+        border: 2px solid #ccc;
+        margin-left: 2px;
+    }
+
+    .delete-button {
+        display: inline-block;
+        padding: 5px 7px;
+        font-size: 10px;
+        border-radius: 5px;
+        background-color: #CC6666;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+////搜索框
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 640px) {
+    .search-input {
+        flex: 1;
+        margin-right: 10px;
+        margin-bottom: 7px;
+        padding: 4px;
+        width: 70px;
+        height: 18px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-left: 4px;
+    }
+.batch-delete-button {
+        display: none;
+}
+
+    .add-button {
+        display: none;
+    }
+.batch-add-button {
+        display: none;
+}
+
+select-button {
+    display: none;
+    margin-top: 8px;
+    margin-bottom: -5px;
+    margin-left: 3px;
+}
+
+.edit-button {
+        display: none;
+}
+
+}
+
+@media (min-width: 641px) {
+.search-button {
+    padding: 5px 7px;
+    font-size: 10px;
+    border-radius: 5px;
+    background-color: #CCCCCC;
+    color: black;
+    text-decoration: none;
+    margin-bottom: -20px;
+    margin-left: 3px;
+}
+
+}
+
+@media (max-width: 640px) {
+
+.search-button {
+    padding: 5px 7px;
+    font-size: 10px;
+    border-radius: 5px;
+    background-color: #CCCCCC;
+    color: black;
+    text-decoration: none;
+    margin-bottom: -20px;
+    margin-left: 0px;
+}
+
+}
+
+//.add-button {
+//    padding: 5px 7px;
+//    font-size: 10px;
+//    border-radius: 5px;
+//    background-color: #CCCCCC;
+//    color: black;
+//    text-decoration: none;
+//    margin-bottom: -20px;
+//    margin-right: 2px;
+//}
+//.batch-clear-button {
+//    padding: 5px 7px;
+//    font-size: 10px;
+//    border-radius: 5px;
+//    background-color: #CCCCCC;
+//    color: black;
+//    text-decoration: none;
+//    margin-bottom: -20px;
+//    margin-right: 2px;
+//}
+//.batch-add-button {
+//    padding: 5px 7px;
+//    font-size: 10px;
+//    border-radius: 5px;
+//    background-color: #CCCCCC;
+//    color: black;
+//    text-decoration: none;
+//    margin-bottom: -20px;
+//    margin-right: 2px;
+//}
+
+.link-button {
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: #CCCCCC;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.clear-button {
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: #CCCCCC;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.filename-hint {
+    display: none;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.required-sign {
+    color: red;
+}
+/* 批量新增窗口样式 */
+.batch-add-modal {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 1080px;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+}
+
+.batch-add-modal .modal-content {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.batch-input {
+    width: 100%;
+    height: 400px;
+    resize: vertical;
+}
+@media (max-width: 640px) {
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  td.checkbox-cell {
+    width: 0px;
+    display: none;
+  .blank {
+    display: none;
+}
+
+  }
+
+.select-button {
+display: none;
+}
+
+}
+
+.select-button {
+    margin-top: 9px;
+    margin-bottom: -5px;
+    margin-left: 3px;
+}
+
+
+@media (min-width: 641px) {
+
+.pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+.pageguide {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+
+.upndown a {
+    margin: auto;
+    display: inline-block;
+    margin-left: -148px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.upndown a:hover {
+    background-color: #f5f5f5;
+}
+
+.jump-container {
+    display: flex;
+    align-items: center;
+}
+
+.jump-input {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 19px;
+    margin-top: -19px;
+    margin-left: -15px;
+ }
+
+.jump-button {
+    padding: 5px 10px;
+    background-color: #669696;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: -19px;
+    margin-left: -137px;
+}
+
+.jump-button:hover {
+    background-color: #45a049;
+}
+
+.pagescount {
+        display: flex;
+        margin-left: 11px;
+        margin-top: -9px;
+}
+.pagescount p {
+margin-right: 10px;
+}
+.app-count-container {
+    text-align: center;
+}
+
+.app-count-container p {
+    margin: 0;
+    margin-left: -200px;
+}
+
+.app-count-container #app-count {
+    font-weight: bold;
+}
+.wordx {
+display: none;
+}
+}
+
+@media (max-width: 640px) {
+.jump-container {
+float: right;
+margin-top: -28px;
+}
+.jump-input {
+width: 30px;
+}
+.bzsl {
+margin: 0 auto;
+
+font-size: 12px;
+float: center;
+margin-left: 2px;
+}
+.pagescount {
+display: none;
+}
+.pagescount p {
+margin-right: 10px;
+}
+.word {
+  margin: 0 5px; /* 单词之间的间隔 */
+}
+.upndown  {
+    display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 200px;
+     gap: 10px;
+}
+
+.upndown a:hover {
+    background-color: #f5f5f5;
+}
+body.scroll-active #scrollToTopBtn {
+    display: none;
+}
+.app-count-container {
+    display: block;
+    clear: both;
+
+}
+}

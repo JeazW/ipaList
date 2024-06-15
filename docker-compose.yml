@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  ipalist:
+    # 使用镜像 "jeazw92/ipalist:latest"
+    image: jeazw92/ipalist:latest
+
+    # 将容器的 5000 端口映射到主机的 8084 端口
+    ports:
+      - 8084:5000
+
+    # 设置容器的环境变量
+    environment:
+      - DOMAIN=https://example.com
+      - USERNAME=admin
+      - PASSWORD=123456
+
+    # 将主机的 "/data/docker/plist" 目录挂载到容器的 "/app/plist" 目录
+    # 此项可选，不需要可以删除
+    volumes:
+      - /data/docker/ipalist:/app/plist
+    container_name: ipalist

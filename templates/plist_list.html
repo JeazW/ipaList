@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>数据管理</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}"> 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles-media.css') }}">
+    <script src="{{ url_for('static', filename='js/plist_list.js') }}"></script>
+<script>
+    function jumpToPage() {
+        var jumpInput = document.getElementById("jump-input");
+        var pageNumber = parseInt(jumpInput.value);
+
+        if (pageNumber >= 1 && pageNumber <= {{ total_pages }}) {
+            var jumpUrl = "{{ url_for('index') }}" + "?page=" + pageNumber;
+            window.location.href = jumpUrl;
+        } else {
+            alert("你是真的会跳，跳了等于没跳");
+        }
+    }
+
+function confirmDelete(filename) {
+    var confirmation = confirm("确认删除该应用？"); // 显示确认弹窗
+
+    if (confirmation) {
+        // 如果确认删除，则执行删除操作
+        var deleteUrl = '/delete_plist/' + filename;
+        window.location.href = deleteUrl;
+    }
+}
+
+</script>
+    <style>
+        /* 半透明黑色图层样式 */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: none;
+        }
+
+        /* 旋转的圆圈样式 */
+        .spinner {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            animation: spin 2s linear infinite;
+            display: none;
+        }
+
+        /* 旋转动画 */
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <a href="{{ url_for('index') }}" class="return-button">返回首页</a>
+        <a href="{{ url_for('logout') }}" class="return-button">退出登录</a>
+        <h1>文件列表</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" onkeyup="showlist()" placeholder="搜索关键字" onkeydown="handleKeyDown(event)" autofocus="autofocus">
+            <button id="search-button" class="search-button" onclick="search()">搜索</button>
+        </div>
+        <div class="placeholder"></div>
+        <div class="button-container">
+{% if database_status == "ON" %}
+    <button id="sync-button" class="sync-button" onclick="syncData()">数据同步</button>
+{% endif %}
+            <button id="edit-button" class="edit-button" onclick="editSelected()">编辑</button>
+            <button id="batch-delete-button" class="batch-delete-button" onclick="batchDelete()">批量删除</button>
+            <button id="batch-add-button" class="batch-add-button" onclick="showBatchAddBox()">批量新增</button>
+            <button id="add-button" class="add-button" onclick="showPromptBox()">新增</button>
+        </div>
+
+
+        <!-- 半透明黑色图层 -->
+        <div id="overlay" class="overlay"></div>
+
+        <!-- 旋转的圆圈 -->
+        <div id="spinner" class="spinner"></div>
+
+        <div class="select-button">
+            <button id="select-all-button" onclick="selectAll()">全选</button>
+            <button id="invert-selection-button" onclick="invertSelection()">反选</button>
+        </div>
+
+        <table id="file-table">
+    <colgroup class="pcgroup">
+        <col style="width: 5%;">
+        <col style="width: 77%;">
+        <col style="width: 20%;">
+
+    </colgroup>
+
+    <colgroup class="mobilegroup">
+        <col style="width: 67%;">
+        <col style="width: 33%;">
+    
+    </colgroup>
+
+            <tr>
+                <th class="placeholder2"></th>
+                <th>文件名称</th>
+                <th>操作</th>
+            </tr>
+    <tbody id="tbody">
+            {% for plist in plist_info %}
+            <tr>
+                <td class="checkbox-cell"><input type="checkbox" name="file-checkbox" value="{{ plist.filename }}"></td>
+                <td class="name-column">{{ plist.title|replace('<string>', '') }}</td>
+                <td class="button-column">
+                    <a href="itms-services://?action=download-manifest&url={{ domain }}{{ url_for('plist', filename=plist.filename) }}" class="install-button">安装</a>
+                    <a href="{{ url_for('download_file', filename=plist.filename) }}" class="download-button">下载</a>
+                    <a href="{{ url_for('delete_plist', filename=plist.filename) }}" class="delete-button" onclick="confirmDelete('{{ plist.filename }}')">删除</a> 
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+<!-- 分页链接 -->
+<div class="pagination">
+    <div class="pageguide">
+        <div class="upndown">
+            {% if page > 1 %}
+                <a href="{{ url_for('index', page=page-1) }}">上一页</a>
+            {% endif %}
+
+            {% if page < total_pages %}
+                <a href="{{ url_for('index', page=page+1) }}">下一页</a>
+            {% endif %}
+        </div>
+
+        <!-- 添加跳转到选项 -->
+        <div class="jump-container">
+            <input type="number" id="jump-input" class="jump-input" min="1" max="{{ total_pages }}">
+            <button id="jump-button" class="jump-button" onclick="jumpToPage()">跳转</button>
+        </div>
+
+        <div class="pagescount">
+            <p>第{{ page }} 页</p>
+            <p>共{{ total_pages }} 页</p>
+        </div>
+    </div>
+
+    <div class="app-count-container">
+        <p class="bzsl">本站已收录应用：<span id="app-count">{{ app_count }}</span> 个</p>
+    </div>
+</div>
+
+
+
+
+    </tbody>
+        </div>
+    </div>
+
+<!-- 弹窗部分 -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <label for="link">请输入链接:</label>
+        <input type="text" id="link" name="link" oninput="extractFilename()">
+        <label for="filename">请输入文件名称<span class="required-sign"></span>:</label>
+        <input type="text" id="filename" name="filename">
+        <p id="filename-hint" class="filename-hint">请手动填写应用名称</p>
+        <button id="link-button" class="link-button" onclick="submitForm()">确定</button>
+        <button id="clear-button" class="clear-button" onclick="clearForm()">清空</button>
+        <div class="link-instruction">链接格式为：http(s)://xxxx.xxxx/xxxxxxx.ipa</div>
+    </div>
+</div>
+
+<!-- 批量新增窗口部分 -->
+<div id="batchAddModal" class="modal batch-add-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeBatchAddModal()">&times;</span>
+        <label for="batch-input">请输入链接（每行一条，最多200条）:</label>
+        <textarea id="batch-input" name="batch-input" class="batch-input"></textarea>
+        <button id="batch-add-button" class="batch-add-button" onclick="batchAdd()">上传</button>
+        <button id="batch-clear-button" class="batch-clear-button" onclick="clearBatchInput()">清空</button>
+        <div id="batch-result" class="batch-result"></div>
+    </div>
+</div>
+
+
+<button id="scrollToTopBtn" title="回到顶部">↑</button>
+
+</body>
+<script>
+document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // 使用平滑滚动效果回到顶部
+});
+window.addEventListener('scroll', function() {
+    document.body.classList.toggle('scroll-active', window.scrollY > 200); // 假设页面滚动超过200px时显示按钮
+});
+</script>
+</html>

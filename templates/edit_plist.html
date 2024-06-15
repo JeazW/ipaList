@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>编辑</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('data:image/png; base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAABCAIAAACdaSOZAAAAFElEQVQIHWM4euYKErp0+tINIAIAuHQQ4rDrv5YAAAAASUVORK5CYII=') #c7ced5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .edit-plist-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        
+        button[type="submit"],
+        button[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        button[type="button"] {
+            background-color: #636363;
+            border: none;
+            color: #fff;
+        }
+        
+        button[type="button"]:hover {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="edit-plist-container">
+        <h1>编辑plist</h1>
+        <form action="{{ url_for('edit_plist') }}" method="post">
+            <input type="hidden" name="plist_filename" value="{{ plist_filename }}">
+            <label for="url">链接:</label>
+            <input type="text" id="url" name="url" value="{{ url }}">
+            <label for="filename">文件名:</label>
+            <input type="text" id="filename" name="filename" value="{{ filename }}">
+<div class="edit_buttons" >
+            <button type="submit">提交</button>
+            <button type="button" onclick="window.location.href='/plist_list'">取消</button>
+</div>
+        </form>
+    </div>
+</body>
+</html>
