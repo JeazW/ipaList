@@ -78,11 +78,11 @@ docker pull jeazw92/ipalist:latest
 ```
 ### 运行容器：
 ```bash
-docker run -itd --name ipaList -e DOMAIN=https://example.com -e USERNAME=admin -e PASSWORD=123456 -p 8084:5000 jeazw92/ipalist:latest
+docker run -itd --name ipalist -e DOMAIN=https://example.com -e USERNAME=admin -e PASSWORD=123456 -p 8084:5000 jeazw92/ipalist:latest
 ```
 如果需要手动管理生成的plist文件，则可以将plist目录映射出来：
 ```bash
-docker run -itd --name ipaList -e DOMAIN=https://example.com -e USERNAME=admin -e PASSWORD=123456 -v /data/docker/ipaList:/app/plist -p 8084:5000 jeazw92/ipalist:latest
+docker run -itd --name ipalist -e DOMAIN=https://example.com -e USERNAME=admin -e PASSWORD=123456 -v /data/docker/ipaList:/app/plist -p 8084:5000 jeazw92/ipalist:latest
 ```
 > 注意运行前把变量替换成自己的
 # docker-compose部署方法：
@@ -117,6 +117,7 @@ services:
     # 此项可选，不需要可以删除
     volumes:
       - /data/docker/ipalist:/app/plist
+    container_name: ipalist
 ```
 > 注意运行前把变量替换成自己的
 ### 运行容器
