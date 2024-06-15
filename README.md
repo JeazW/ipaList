@@ -33,9 +33,11 @@
 </div>
 
 ### **电脑端游客页**
-![](http://note.liuyan.wang/media/202405/2024-05-21_144036_5208840.027107250835561203.png)
+
+![](https://github.com/JeazW/ipaList/assets/75829171/428d9fee-ee8e-4405-a3c5-c8f20b9d8e63)
 ### **电脑端管理页**
-![](http://note.liuyan.wang/media/202405/2024-05-21_143932_4001660.7181105496391802.png)
+
+![](https://github.com/JeazW/ipaList/assets/75829171/fd95f9dc-5197-4ad0-9f46-827f1959a0ee)
 
 ## 源码部署方法：
 
