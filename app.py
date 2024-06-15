@@ -591,4 +591,4 @@ def logout():
 if __name__ == '__main__':
     # 创建plist表格（如果不存在）
     create_plist_table()
-    app.run(host='0.0.0.0', port=8084, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=False)
