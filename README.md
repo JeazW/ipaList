@@ -20,7 +20,6 @@
 - [x]批量新增100限制
 - [x]页数跳转
 - [ ]公告只在第一页
-- [ ]加入分类功能
 ## 效果图
 ### **手机端（iphone4s-ios6.1.3）**
 <div style="display: flex;">
@@ -42,7 +41,7 @@
 **环境：python3.8或以上**
 
 ```bash
-git clone http://gitea.liuyan.wang/wzj/ipaList.git
+git clone https://github.com/JeazW/ipaList.git
 cd ipaList
 pip install -r requirements.txt
 #或者采用或内加速源：
@@ -61,6 +60,8 @@ DOMAIN=https://example.xom
 USERNAME=admin
 #管理密码（默认123456）
 PASSWORD=123456
+#每页数量
+PERPAGE=100
 ```
 > 注意运行前把变量替换成自己的
 ```bash
@@ -120,4 +121,5 @@ services:
 docker-compose up -d
 ```
 
-
+# 使用方法
+点击“新增”，把ipa链接（直链）填入即可
