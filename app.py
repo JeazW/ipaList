@@ -25,11 +25,13 @@ print(f"密码盐: {SECRET_KEY}")
 print(f"用户名: {USERNAME}")
 print(f"密码: {PASSWORD}")
 print(f"数据库开关: {DATABASE}")
-print(f"数据库主机: {DB_HOST}")
-print(f"数据库端口: {DB_PORT}")
-print(f"数据库用户: {DB_USER}")
-print(f"数据库密码: {DB_PASSWORD}")
-print(f"数据库名: {DB_NAME}")
+if DATABASE == 'ON':
+    print(f"数据库主机: {DB_HOST}")
+    print(f"数据库端口: {DB_PORT}")
+    print(f"数据库用户: {DB_USER}")
+    print(f"数据库密码: {DB_PASSWORD}")
+    print(f"数据库名: {DB_NAME}")
+
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 3600  # 设置静态文件缓存时间（单位：秒）
