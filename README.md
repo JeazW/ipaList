@@ -21,20 +21,23 @@
 - [x]页数跳转
 - [ ]公告只在第一页
 ## 效果图
+
 ### **手机端（iphone4s-ios6.1.3）**
 <div style="display: flex;">
   <div style="flex: 50%; padding: 5px;">
-    <img src="http://note.liuyan.wang/media/202405/2024-05-21_144316_9696680.6675652367501925.png" alt="手机端游客页" style="width: 100%;">
+    <img src="https://github.com/JeazW/ipaList/assets/75829171/9386e868-624c-404e-bb22-ec1eac53a220" alt="手机端游客页" style="width: 30%;">
   </div>
   <div style="flex: 50%; padding: 5px;">
-    <img src="http://note.liuyan.wang/media/202405/2024-05-21_132736_6233680.7330066454057781.png" alt="手机端管理页" style="width: 100%;">
+    <img src="https://github.com/JeazW/ipaList/assets/75829171/742a28d5-b9f1-47a3-971f-8c120d60dd1c" alt="手机端管理页" style="width: 30%;">
   </div>
 </div>
 
 ### **电脑端游客页**
-![](http://note.liuyan.wang/media/202405/2024-05-21_144036_5208840.027107250835561203.png)
+
+![](https://github.com/JeazW/ipaList/assets/75829171/428d9fee-ee8e-4405-a3c5-c8f20b9d8e63)
 ### **电脑端管理页**
-![](http://note.liuyan.wang/media/202405/2024-05-21_143932_4001660.7181105496391802.png)
+
+![](https://github.com/JeazW/ipaList/assets/75829171/fd95f9dc-5197-4ad0-9f46-827f1959a0ee)
 
 ## 源码部署方法：
 
@@ -123,3 +126,4 @@ docker-compose up -d
 
 # 使用方法
 点击“新增”，把ipa链接（直链）填入即可
+
