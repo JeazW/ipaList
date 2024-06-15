@@ -21,13 +21,14 @@
 - [x]页数跳转
 - [ ]公告只在第一页
 ## 效果图
+
 ### **手机端（iphone4s-ios6.1.3）**
 <div style="display: flex;">
   <div style="flex: 50%; padding: 5px;">
-    <img src="http://note.liuyan.wang/media/202405/2024-05-21_144316_9696680.6675652367501925.png" alt="手机端游客页" style="width: 100%;">
+    <img src="https://github.com/JeazW/ipaList/assets/75829171/9386e868-624c-404e-bb22-ec1eac53a220" alt="手机端游客页" style="width: 100%;">
   </div>
   <div style="flex: 50%; padding: 5px;">
-    <img src="http://note.liuyan.wang/media/202405/2024-05-21_132736_6233680.7330066454057781.png" alt="手机端管理页" style="width: 100%;">
+    <img src="https://github.com/JeazW/ipaList/assets/75829171/742a28d5-b9f1-47a3-971f-8c120d60dd1c" alt="手机端管理页" style="width: 100%;">
   </div>
 </div>
 
