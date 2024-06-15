@@ -25,10 +25,10 @@
 ### **手机端（iphone4s-ios6.1.3）**
 <div style="display: flex;">
   <div style="flex: 50%; padding: 5px;">
-    <img src="https://github.com/JeazW/ipaList/assets/75829171/9386e868-624c-404e-bb22-ec1eac53a220" alt="手机端游客页" style="width: 100%;">
+    <img src="https://github.com/JeazW/ipaList/assets/75829171/9386e868-624c-404e-bb22-ec1eac53a220" alt="手机端游客页" style="width: 30%;">
   </div>
   <div style="flex: 50%; padding: 5px;">
-    <img src="https://github.com/JeazW/ipaList/assets/75829171/742a28d5-b9f1-47a3-971f-8c120d60dd1c" alt="手机端管理页" style="width: 100%;">
+    <img src="https://github.com/JeazW/ipaList/assets/75829171/742a28d5-b9f1-47a3-971f-8c120d60dd1c" alt="手机端管理页" style="width: 30%;">
   </div>
 </div>
 
