@@ -14,8 +14,5 @@ RUN pip install --no-cache-dir --upgrade pip \
 # 暴露应用程序的端口
 EXPOSE 5000
 
-# 设置环境变量
-ENV FLASK_APP=app.py
-
 # 运行应用程序
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["python", "app.py"]
